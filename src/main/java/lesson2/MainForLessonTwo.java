@@ -10,7 +10,10 @@ public class MainForLessonTwo {
         chekPositiveNumber(0);
         chekNegativeNumber(-2);
         printStringByCount("TUT STROKA", 5);
-        checkYearIsLeap(2023, 4);
+        checkYearIsLeap(1200);
+//        checkYearIsLeap(1300);
+        checkYearIsLeap(64);
+        checkYearIsLeap(53);
     }
     public static boolean checkSumInRange(int a, int b) {
         int result = a + b;
@@ -42,16 +45,23 @@ public class MainForLessonTwo {
         }
     }
 
-    /** В условии задачи каждый 100-й год невисокосный, соответственно делаем проверку на год 100,200, 1100,1200 и т.д.
-     * Каждый 400 год при этом является високосным.
-     *
+    /** В условии задачи каждый 100-й год невисокосный, соответственно делаем проверку на год 100,200...
+     * Если год кратен 400, то считаем его високосным.
+     * Каждый 4 год, считаем високосным.
      */
-    public static void checkYearIsLeap(int year, int k) {
-
-//        int y = 0;
-//        while (y <= year) {
-//            y = y + k;
-//            System.out.println(String.format("Year is %s", y));
+    public static boolean checkYearIsLeap(int year) {
+        if (year % 400 == 0) {
+            System.out.println(String.format("Year %s is leap", year));
+            return true;
+        } else if (year % 100 == 0) {
+            System.out.println(String.format("Year %s is not leap", year));
+            return false;
+        } else if (year % 4 == 0) {
+            System.out.println(String.format("Year %s is leap", year));
+            return true;
+        } else {
+            System.out.println(String.format("Year %s is not leap", year));
+            return false;
         }
     }
 }
